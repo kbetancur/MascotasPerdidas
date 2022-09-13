@@ -1,0 +1,6 @@
+beans\Mascota.class
+servlets\PruebaServlet.class
+beans\Publicacion.class
+test\OperacionesDB.class
+beans\Duenio.class
+connection\DBConnection.class
