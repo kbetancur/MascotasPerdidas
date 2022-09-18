@@ -14,6 +14,14 @@ public class Duenio {
     private String direccion;
     private String telefono;
 
+    public Duenio(int id_duenio) {
+        this.id_duenio = id_duenio;
+        this.nombre = nombre;
+    }
+
+   
+    
+
     public Duenio(int id_duenio, String tipo_identificacion, String identificacion, String nombre, String apellidos, String correo_electronico, String contrasena, String ciudad, String barrio, String direccion, String telefono) {
         this.id_duenio = id_duenio;
         this.tipo_identificacion = tipo_identificacion;

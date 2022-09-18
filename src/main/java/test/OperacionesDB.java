@@ -11,16 +11,19 @@ import java.sql.Statement;
 public class OperacionesDB {
 
     public static void main(String[] args) {
-        listarDuenios();
+        //listarDuenios();
+        actualizarDuenio(1,"Niver");
 
     }
 
     public static void actualizarDuenio(int id_duenio, String nombre) {
         DBConnection conn = new DBConnection();
-        String sql = "UPDATE tbl_duenio SET nombre = '" + nombre + "'WHERE id=" + id_duenio;
+        
+        String sql = "UPDATE tbl_duenio SET nombre = '" + nombre + "'WHERE id_duenio=" + id_duenio;
         try {
             Statement st = conn.getConnection().createStatement();
             st.executeUpdate(sql);
+            System.out.println("Después de ejecutar el update - " + "Filas afectadas: " + st.getUpdateCount());
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
