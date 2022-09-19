@@ -1,6 +1,9 @@
+controller\IDuenioController.class
 beans\Mascota.class
-servlets\PruebaServlet.class
+servlets\ServletDuenioLogin.class
 beans\Publicacion.class
+controller\DuenioController.class
+servlets\PruebaServlet.class
 test\OperacionesDB.class
 beans\Duenio.class
 connection\DBConnection.class
