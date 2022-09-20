@@ -199,3 +199,46 @@ div {
     margin-right: calc(var(--mdb-gutter-x)*-0.5);
     margin-left: calc(var(--mdb-gutter-x)*-0.5);
 }
+
+/* styles for register form
+-------------------------------------------------- */
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+
+.select-input.form-control[readonly]:not([disabled]) {
+    background-color: transparent;
+}
+
+.btnreg {
+    text-transform: uppercase;
+    vertical-align: bottom;
+    border: 0;    
+    font-weight: 500;
+    color:#fff;
+    font-size: 10px;
+    font-family: Roboto,sans-serif;
+   
+}
+.btnreg-warning {
+    background-color: #e4a11b;
+    color: #fff;
+    box-shadow: 0 4px 9px -4px #e4a11b;
+}
+
+.btnreg-warning:focus,.btnreg-warning:hover{
+    color:#fff;
+    background-color:#e8af3d;
+    border-color:#e7aa32
+}
+
+.bg-dark2 {
+    background-color: rgba(248,249,250)!important;
+}
+

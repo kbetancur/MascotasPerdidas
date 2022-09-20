@@ -48,4 +48,31 @@ public class DuenioController implements IDuenioController {
         
     }
     
+    
+    @Override
+    public String register(String tipo_identificacion,String identificacion, String nombre, String apellidos, String correo_electronico, String contrasena, String ciudad, String barrio, String direccion, String telefono)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();
+        //String sql = "Insert into tbl_duenio values('"+tipo_identificacion+"', '"+identificacion+"', '"+nombre+"', '"+apellidos+"', '"+correo_electronico+"', '"+contrasena+"',+'"+ciudad+"', '"+barrio+"', '"+direccion+"','"+telefono+"')";
+        String sql = "Insert into tbl_duenio (tipo_identificacion, identificacion,nombre, apellidos, correo_electronico, contrasena, \n" +
+"ciudad, barrio, direccion, telefono) values('"+tipo_identificacion+"', '"+identificacion+"', '"+nombre+"', '"+apellidos+"', '"+correo_electronico+"', '"+contrasena+"',+'"+ciudad+"', '"+barrio+"', '"+direccion+"','"+telefono+"')";
+        try {
+            Statement st = conn.getConnection().createStatement();
+            st.executeUpdate(sql);
+            Duenio duenio = new Duenio (tipo_identificacion, identificacion, nombre, apellidos,correo_electronico, contrasena, ciudad, barrio, direccion, telefono);
+            st.close();
+            
+            return gson.toJson(duenio);            
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+            
+        }
+        return "false";
+        
+    }
+    
 }
