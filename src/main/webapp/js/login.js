@@ -32,7 +32,11 @@ function autenticarUsuario() {
             if (parsedResult != false) {
                 $("#login-error").addClass("d-none");
                 let correo_electronico = parsedResult['correo_electronico'];
-                document.location.href = "index.html?correo_electronico=" + correo_electronico;
+                document.location.href = "home.html?correo_electronico=" + correo_electronico;
+                
+                $("#bienvenido").removeClass("d-none");
+                $("#bienvenido").html("Prueba ");
+                
             } else {
                 $("#login-error").removeClass("d-none");
             }
