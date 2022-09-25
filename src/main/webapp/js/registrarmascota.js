@@ -12,7 +12,8 @@ function registrarMascota() {
     let anio_nacimiento = $("#anio_nacimiento").val();
     let color = $("#color").val();
     let estado = $("#iestado").val();
-    console.log("la longitud de nombre es: " + nombre.length);
+    console.log("Estado valor: "+estado);
+    //console.log("la longitud de nombre es: " + nombre.length);
 
     if (nombre.length >= 3) {
         $.ajax({
@@ -33,8 +34,25 @@ function registrarMascota() {
                     $("#register-error").addClass("d-none");
                     let nombre = parsedResult['nombre'];
                     /**/
-                    window.alert("Los datos de su mascota han sido registrados con éxito!");
-                     document.location.href = "home.html?nombre=" + nombre;
+                    //window.alert("Los datos de su mascota han sido registrados con éxito!");
+                    swal(
+                        {
+                            title: "Registro Mascota",
+                            text: "Los datos de su mascota han sido registrados con éxito!",
+                            type: "success",
+                            showCancelButton: false,
+                            confirmButtonClass: "btn-primary",
+                            confirmButtonText: "Ok",
+                            closeOnConfirm: false,
+                            allowOutsideClick: false
+                        },
+                        function()
+                        {
+                            document.location.href = "home.html?nombre=" + nombre;
+                        }
+                    );
+                    
+                     
 
 
                     //document.location.href = "home.html?nombre=" + nombre;

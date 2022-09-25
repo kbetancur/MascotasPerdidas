@@ -26,6 +26,9 @@
         crossorigin="anonymous"></script>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
+       <!-- css y js para el mensaje de registro de mascotas -->
+       <link rel="stylesheet" href="sweetalert/sweetalert.css" />         
+       <script src="sweetalert/sweetalert.min.js"></script>
        
         <!-- script para el registro de mascotas -->
         <script src="js/registrarmascota.js"></script>
@@ -138,7 +141,13 @@
                     
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="estado" class="form-control form-control-lg" placeholder="Estado" required/>
+                      <!--<input type="text" id="estado" class="form-control form-control-lg" placeholder="Estado" required/>-->
+                           <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="iestado">
+                                <option disabled selected>Estado</option>
+                                <option value="Sin Estado">Sin Estado</option>
+                                <option value="Perdida">Perdida</option>
+                                <option value="Encontrada">Encontrada</option>
+                      </select>
                       
                     </div>
                   </div>

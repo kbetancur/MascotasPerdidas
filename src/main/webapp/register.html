@@ -28,6 +28,10 @@
         
         <!-- script para el login -->
         <script src="js/login.js"></script>
+        
+       <!-- css y js para el mensaje de registro de dueños -->
+       <link rel="stylesheet" href="sweetalert/sweetalert.css" />         
+       <script src="sweetalert/sweetalert.min.js"></script>
 
         <style>
             .bd-placeholder-img {
@@ -131,7 +135,14 @@
                   
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="text" id="tipoidentificacion" class="form-control form-control-lg" placeholder="Tipo Identificación"/>                      
+                        <!--<input type="text" id="tipoidentificacion" class="form-control form-control-lg" placeholder="Tipo Identificación"/>-->
+                        <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="tipoidentificacion">
+                            <option disabled selected>Tipo de Identificación</option>
+                            <option value="CC">CC</option>
+                            <option value="CE">CE</option>
+                            <option value="TI">TI</option>
+                      </select>
+                        
                     </div>
                   </div>
                     

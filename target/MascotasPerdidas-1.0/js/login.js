@@ -1,3 +1,5 @@
+var selectedOption;
+
 $(document).ready(function () {
 
     $("#form-login").submit(function (event) {
@@ -33,10 +35,10 @@ function autenticarUsuario() {
                 $("#login-error").addClass("d-none");
                 let correo_electronico = parsedResult['correo_electronico'];
                 document.location.href = "home.html?correo_electronico=" + correo_electronico;
-                
+
                 $("#bienvenido").removeClass("d-none");
                 $("#bienvenido").html("Prueba ");
-                
+
             } else {
                 $("#login-error").removeClass("d-none");
             }
@@ -50,7 +52,10 @@ function registrarUsuario() {
     let correo_electronico = $("#usuarioreg").val();
     let contrasena = $("#contrasenareg").val();
     let contrasenaConfirmacion = $("#contrasenareg-rep").val();    
-    let tipo_identificacion = $("#tipoidentificacion").val();
+    
+    //let tipo_identificacion = document.getElementById('tipoidentificacion').value;
+    let tipo_identificacion = $("#tipoidentificacion").val(); 
+    
     let identificacion = $("#identificacion").val();
     let nombre = $("#nombre").val();
     let apellidos = $("#apellidos").val();
@@ -71,10 +76,10 @@ function registrarUsuario() {
                 identificacion: identificacion,
                 nombre: nombre,
                 apellidos: apellidos,
-                ciudad:ciudad,
+                ciudad: ciudad,
                 barrio: barrio,
-                direccion:direccion,
-                telefono:telefono
+                direccion: direccion,
+                telefono: telefono
             }),
 
             success: function (result) {
@@ -83,9 +88,26 @@ function registrarUsuario() {
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
                     let correo_electronico = parsedResult['correo_electronico'];
-                    window.alert("Su usuario fue creado exitosamente!");
+                    //window.alert("Su usuario fue creado exitosamente!");
+                    swal(
+                        {
+                            title: "Registro de Usuario",
+                            text: "Su usuario fue creado exitosamente!",
+                            type: "success",
+                            showCancelButton: false,
+                            confirmButtonClass: "btn-primary",
+                            confirmButtonText: "Ok",
+                            closeOnConfirm: false,
+                            allowOutsideClick: false
+                        },
+                        function()
+                        {
+                            document.location.href = "home.html?correo_electronico=" + correo_electronico;
+                        }
+                    );
                     
-                    document.location.href = "home.html?correo_electronico=" + correo_electronico;
+
+                    
                 } else {
 
                     $("#register-error").removeClass("d-none");
