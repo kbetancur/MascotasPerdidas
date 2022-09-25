@@ -21,6 +21,17 @@ public class Mascota {
         this.color = color;
         this.estado = estado;
     }
+    
+    //Constructor para el registro de mascota
+        public Mascota(String nombre, String especie, String raza, int anio_nacimiento, String color, String estado) 
+        {
+            this.nombre = nombre;
+            this.especie = especie;
+            this.raza = raza;
+            this.anio_nacimiento = anio_nacimiento;
+            this.color = color;
+            this.estado = estado;
+    }
 
     
     

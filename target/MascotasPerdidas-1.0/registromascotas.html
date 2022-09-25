@@ -26,8 +26,11 @@
         crossorigin="anonymous"></script>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
-        <!-- script para el login -->
-        <script src="js/login.js"></script>
+       
+        <!-- script para el registro de mascotas -->
+        <script src="js/registrarmascota.js"></script>
+        
+       
 
         <style>
             .bd-placeholder-img {
@@ -45,7 +48,7 @@
     </head>
 
     <body>
-        <!--e3f2fd-->
+
         <!-- Inicio menú-->
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #b6e3e9;">
@@ -77,7 +80,7 @@
             </nav>
         </header>
         <!--fin menú-->
-
+        
  <!--Inicio registro -->
 <section class="h-100 bg-light">
   <div class="container py-5 h-100">
@@ -86,58 +89,46 @@
         <div class="card card-registration my-4">
           <div class="row g-0">
             <div class="col-xl-6 d-none d-xl-block">
-              <img src="img/duenioregister.jpg"
+              <img src="img/dogregisterm.jpg"
                 alt="Amo las mascotas" class="img-fluid"
                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
             </div>
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
-                <form id="form-register">
-                <h3 class="mb-5 text-uppercase text-center">Registro Dueño</h3>
+                <form id="form-registerm">
+                <h3 class="mb-5 text-uppercase text-center">Registro Mascota</h3>
 
                               
                  <div class="form-outline mb-4">
-                  <input type="text" id="usuarioreg" class="form-control form-control-lg" placeholder="Correo Electrónico" required />
-                  <!--<label class="form-label" for="form3Example97">Correo Electrónico</label>-->
+                  <input type="text" id="nombre" class="form-control form-control-lg" placeholder="Nombre de la mascota" required />
                 </div>
                 
-                 <div class="row">
-                    
+                 <div class="row">                    
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="password" id="contrasenareg" class="form-control form-control-lg" placeholder="Contraseña" required />                      
+                        <input type="text" id="especie" class="form-control form-control-lg" placeholder="Especie"  required />
                     </div>
                   </div>
                     
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="password" id="contrasenareg-rep" class="form-control form-control-lg" placeholder="Repetir Contraseña" required />                      
+                       <input type="text" id="raza" class="form-control form-control-lg" placeholder="Raza" required />
                     </div>
                   </div>
                     
                 </div>
  
 
-                <div class="row">
-                    
-                  <!--<div class="col-md-6 mb-4">
-                    <select class="form-select" id="">
-                      <option value="1">Tipo de Identificación</option>
-                      <option value="2">CC</option>
-                      <option value="3">CE</option>
-                      <option value="4">TI</option>
-                    </select>
-                  </div>-->
-                  
+                <div class="row">    
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="text" id="tipoidentificacion" class="form-control form-control-lg" placeholder="Tipo Identificación"/>                      
+                        <input type="text" id="anio_nacimiento" class="form-control form-control-lg" placeholder="Año de nacimiento" required/>
                     </div>
                   </div>
                     
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="text" id="identificacion" class="form-control form-control-lg" placeholder="Identificación"/>                      
+                         <input type="text" id="color" class="form-control form-control-lg" placeholder="Color" required/>                      
                     </div>
                   </div>
                     
@@ -147,55 +138,26 @@
                     
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="nombre" class="form-control form-control-lg" placeholder="Nombre" />
-                      <!--<label class="form-label" for="form3Example1m">Nombre</label>-->
+                      <input type="text" id="estado" class="form-control form-control-lg" placeholder="Estado" required/>
+                      
                     </div>
                   </div>
                     
                   <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="apellidos" class="form-control form-control-lg" placeholder="Apellidos"/>
-                      <!--<label class="form-label" for="form3Example1n">Apellidos</label>-->
+                    <div class="form-outline">                      
                     </div>
                   </div>
                     
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="ciudad" class="form-control form-control-lg" placeholder="Ciudad"/>
-                      <!--<label class="form-label" for="ciudad">Ciudad</label>-->
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="barrio" class="form-control form-control-lg" placeholder="Barrio"/>
-                      <!--<label class="form-label" for="barrio">Barrio</label>-->
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="text" id="direccion" class="form-control form-control-lg" placeholder="Dirección"/>
-                  <!--<label class="form-label" for="direccion">Dirección</label>-->
-                </div>
-                
-                <div class="form-outline mb-4">
-                  <input type="text" id="telefono" class="form-control form-control-lg" placeholder="Teléfono" />
-                  <!--<label class="form-label" for="telefono">Teléfono</label>-->
-                </div>               
+                </div>                          
 
                
                 <div class="d-flex justify-content-center pt-3">                  
                   <button type="submit" class="btnreg btnreg-warning btn-lg ms-2">Registrar</button>
                 </div>
-                
-                
-                
                 </form>
+                  
                   <br>
-                  <div id="register-error" class="alert alert-danger d-none" role="alert"></div>
+                  <div id="registerm-error" class="alert alert-danger d-none" role="alert"></div>
 
               </div>
                 
@@ -204,22 +166,28 @@
         </div>
       </div>
     </div>
-
-     <p>EQUIPO ROCKET TEAM - MISIÓN TIC 2022 - UTP</p>      
+ 
+ 
+     <p>EQUIPO ROCKET TEAM - MISIÓN TIC 2022 - UTP</p>
+     
+    
   </div>
+ 
+    
 </section>
         
-        <!--fin registro-->
+ <!--fin registro-->        
 
 
 
 
-        <!-- Iniio pie de página-->
+        <!-- Inicio pie de página-->
         <footer class="border-top footer text-muted" style="background-color: #b6e3e9;">
             <div class="container">
                 &copy; 2022 - Mascotas Perdidas - <a>Privacy</a>
             </div>
         </footer>
         <!-- Fin pie de página-->
+        
     </body>
-</html>
+</html> 

@@ -83,6 +83,8 @@ function registrarUsuario() {
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
                     let correo_electronico = parsedResult['correo_electronico'];
+                    window.alert("Su usuario fue creado exitosamente!");
+                    
                     document.location.href = "home.html?correo_electronico=" + correo_electronico;
                 } else {
 
