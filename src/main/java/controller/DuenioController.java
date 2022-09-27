@@ -114,4 +114,35 @@ public class DuenioController implements IDuenioController {
         
     }
     
+/*--------------------------------------------
+    Editar usuario
+ ---------------------------------------------*/    
+    
+    @Override
+    public String edit(String tipo_identificacion,String identificacion, String nombre, String apellidos,String correo_electronico, String ciudad, String barrio, String direccion, String telefono)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();        
+        
+        String sql = "Update tbl_duenio set tipo_identificacion = '"+tipo_identificacion+"', identificacion='"+identificacion+"',nombre='"+nombre+"', apellidos='"+apellidos+"', ciudad='"+ciudad+"',barrio='"+barrio+"',direccion='"+direccion+"',telefono='"+telefono+"' where correo_electronico = '"+correo_electronico+"'";
+        try {
+            
+            Statement st = conn.getConnection().createStatement();
+            st.executeUpdate(sql);
+            Duenio duenio = new Duenio (tipo_identificacion, identificacion, nombre, apellidos, correo_electronico,ciudad, barrio, direccion, telefono);
+            st.close();
+            
+            return gson.toJson(duenio);            
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+            
+        }
+        return "false";
+        
+    }
+    
+    
 }

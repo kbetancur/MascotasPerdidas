@@ -24,9 +24,13 @@
        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        <!-- script para  -->
-        <script src="js/main.js"></script>
-        <script src="css/main.css"></script>
+        <!-- script y css para obtener datos usuario  -->
+        <link rel="stylesheet" href="css/homeDuenio.css" />        
+        <script src="js/homeDuenio.js"></script>
+        
+       <!-- css y js para el mensajes -->
+       <link rel="stylesheet" href="sweetalert/sweetalert.css" />         
+       <script src="sweetalert/sweetalert.min.js"></script>
         
         <!-- script para  dropdown-->
         <script src="js/popper.min.js"></script>
@@ -96,9 +100,123 @@
                 </thead>
                 <tbody id="duenios-tbody">
                 </tbody>
-            </table>                   
+            </table>     
+            <br>
 
         </main>
+        
+<!-- Inicio Formulario Editar Usuario -->
+<section class="h-100 bg-light">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">         
+            
+
+              <div class="card-body p-md-5 text-black">
+                <form id="form-edituser">
+                <h3 class="mb-5 text-uppercase text-center">Editar Dueño</h3>
+
+                              
+                 <div class="form-outline mb-4">
+                     <label class="form-label" for="input-correo">Correo Electrónico</label>
+                     <input type="text" id="input-correo" class="form-control form-control-lg" disabled />                  
+                </div>
+                
+                 <div class="row">                    
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="input-nombre">Nombre: </label>
+                        <input type="text" id="input-nombre" class="form-control form-control-lg" />                      
+                    </div>
+                  </div>
+                    
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="input-apellidos">Apellidos: </label>
+                        <input type="text" id="input-apellidos" class="form-control form-control-lg" />                      
+                    </div>
+                  </div>                    
+                </div>
+ 
+
+                <div class="row">                  
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">   
+                        <label class="form-label" for="select-tipoidentificacion">Tipo de identificación: </label>
+                        <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="select-tipoidentificacion">
+                            <option disabled selected>Tipo de Identificación</option>
+                            <option value="CC">CC</option>
+                            <option value="CE">CE</option>
+                            <option value="TI">TI</option>
+                      </select>                        
+                    </div>
+                  </div>
+                    
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="input-identificacion">Identificación: </label>
+                        <input type="text" id="input-identificacion" class="form-control form-control-lg" />                      
+                    </div>
+                  </div>
+                    
+                </div>
+                
+ 
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="input-ciudad">Ciudad</label>
+                      <input type="text" id="input-ciudad" class="form-control form-control-lg" />
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="input-barrio">Barrio: </label>
+                        <input type="text" id="input-barrio" class="form-control form-control-lg" />
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="input-direccion">Dirección: </label>
+                  <input type="text" id="input-direccion" class="form-control form-control-lg" />
+                  
+                </div>
+                
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="input-telefono">Teléfono: </label>
+                  <input type="text" id="input-telefono" class="form-control form-control-lg"  />
+                  <!--<label class="form-label" for="telefono">Teléfono</label>-->
+                </div>               
+
+               
+                <div class="d-flex justify-content-center pt-3">                  
+                  <button type="submit" class="btnreg btnreg-warning btn-lg ms-2">Actualizar</button>
+                </div>
+                
+                
+                
+                </form>
+                  <br>
+                  <div id="edit-error" class="alert alert-danger d-none" role="alert"></div>
+
+              </div>
+                
+         
+ 
+        </div>
+      </div>
+    </div>
+
+     <p>EQUIPO ROCKET TEAM - MISIÓN TIC 2022 - UTP</p>      
+  </div>
+</section>
+
+<!-- Fin Formulario Editar Usuario -->
 
         <!-- Iniio pie de página-->
         <footer class="border-top footer text-muted" style="background-color: #b6e3e9;">

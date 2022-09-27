@@ -51,6 +51,19 @@ public class Duenio {
         this.telefono = telefono;
     }
     
+    //Constructor para el edit datos sin contraseña
+    public Duenio(String tipo_identificacion,String identificacion, String nombre, String apellidos, String correo_electronico,String ciudad, String barrio, String direccion, String telefono) {
+        
+        this.tipo_identificacion = tipo_identificacion;
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo_electronico = correo_electronico;
+        this.ciudad = ciudad;
+        this.barrio = barrio;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
     
 
     /**

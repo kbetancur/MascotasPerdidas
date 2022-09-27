@@ -1,4 +1,4 @@
-var selectedOption;
+/*Javascript para login y registro de usuario*/
 
 $(document).ready(function () {
 
