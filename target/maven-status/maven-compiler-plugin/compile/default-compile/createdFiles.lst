@@ -9,6 +9,7 @@ controller\IMascotaController.class
 test\OperacionesDB.class
 beans\Duenio.class
 controller\IDuenioController.class
+servlets\ServletDuenioListar.class
 servlets\ServletDuenioLogin.class
 servlets\ServletDuenioRegister.class
 controller\DuenioController.class
