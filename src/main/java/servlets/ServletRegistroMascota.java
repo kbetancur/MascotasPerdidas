@@ -29,6 +29,7 @@ public class ServletRegistroMascota extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MascotaController mascota = new MascotaController();
+        int id_duenio = Integer.parseInt(request.getParameter("id_duenio"));
         String nombre = request.getParameter("nombre");
         String especie = request.getParameter("especie");
         String raza = request.getParameter("raza");
@@ -36,7 +37,7 @@ public class ServletRegistroMascota extends HttpServlet {
         String color = request.getParameter("color");
         String estado = request.getParameter("estado");
         
-        String result = mascota.registrom( nombre, especie, raza, anio_nacimiento, color, estado);
+        String result = mascota.registrom(id_duenio, nombre, especie, raza, anio_nacimiento, color, estado);
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(result);

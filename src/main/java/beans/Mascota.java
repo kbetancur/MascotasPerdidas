@@ -10,6 +10,7 @@ public class Mascota {
     private int anio_nacimiento;
     private String color;
     private String estado;
+    private String nombres_duenio;
 
     public Mascota(int id_mascota, int id_duenio, String nombre, String especie, String raza, int anio_nacimiento, String color, String estado) {
         this.id_mascota = id_mascota;
@@ -31,6 +32,31 @@ public class Mascota {
             this.anio_nacimiento = anio_nacimiento;
             this.color = color;
             this.estado = estado;
+    }
+        
+    //Constructor para el registro de mascota con dueño
+        public Mascota(int id_duenio, String nombre, String especie, String raza, int anio_nacimiento, String color, String estado) 
+        {
+            this.id_duenio = id_duenio;
+            this.nombre = nombre;
+            this.especie = especie;
+            this.raza = raza;
+            this.anio_nacimiento = anio_nacimiento;
+            this.color = color;
+            this.estado = estado;
+    }     
+        
+        /* Constructor para consulta con inner join a dueño*/
+        public Mascota(int id_mascota, int id_duenio, String nombres_duenio,String nombre, String especie, String raza, int anio_nacimiento, String color, String estado) {
+        this.id_mascota = id_mascota;
+        this.id_duenio = id_duenio;
+        this.nombres_duenio = nombres_duenio;
+        this.nombre = nombre;
+        this.especie = especie;
+        this.raza = raza;
+        this.anio_nacimiento = anio_nacimiento;
+        this.color = color;
+        this.estado = estado;
     }
 
     
@@ -147,6 +173,16 @@ public class Mascota {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getNombres_duenio() {
+        return nombres_duenio;
+    }
+
+    public void setNombres_duenio(String nombres_duenio) {
+        this.nombres_duenio = nombres_duenio;
+    }
+    
+    
 
     @Override
     public String toString() {

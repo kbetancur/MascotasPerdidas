@@ -1,5 +1,6 @@
 
 var correo_electronico = new URL (location.href).searchParams.get("correo_electronico");
+console.log("correo: " + correo_electronico);
 var user;
 
 //función para redireccionar a registro mascotas llevandole el correo del dueño

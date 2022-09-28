@@ -13,4 +13,5 @@ servlets\ServletDuenioListar.class
 servlets\ServletDuenioLogin.class
 servlets\ServletDuenioRegister.class
 controller\DuenioController.class
+servlets\ServletListarMascotas.class
 connection\DBConnection.class

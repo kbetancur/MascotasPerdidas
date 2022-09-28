@@ -7,14 +7,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import controller.DuenioController;
+import controller.MascotaController;
 
 /**
- * Servlet implementation class ServletDuenioGet
+ * Servlet implementation class ServletDuenioListar
  */
 
-@WebServlet("/ServletDuenioGet")
-public class ServletDuenioGet extends HttpServlet {
+@WebServlet("/ServletListarMascotas")
+public class ServletListarMascotas extends HttpServlet {
 
         private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class ServletDuenioGet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 
-    public ServletDuenioGet() {
+    public ServletListarMascotas() {
         super();
     }
     
@@ -33,12 +33,13 @@ public class ServletDuenioGet extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
-        DuenioController duenioc = new DuenioController();        
-        String correo_electronico = request.getParameter("correo_electronico");
-        String duenioStr = duenioc.obtenerDatos(correo_electronico);        
-        response.setContentType("text/html;charset=UTF8");
+        MascotaController mascota = new MascotaController();        
+        boolean ordenar = Boolean.parseBoolean(request.getParameter("ordenar"));
+        String orden = request.getParameter("orden");
+        String mascotaStr = mascota.listar(ordenar,orden);  
+        response.setContentType("text/html;charset=UTF8");        
         PrintWriter out = response.getWriter();
-        out.print(duenioStr);
+        out.print(mascotaStr);
         out.flush();
         out.close();
     }

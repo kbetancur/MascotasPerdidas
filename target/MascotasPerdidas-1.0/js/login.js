@@ -1,5 +1,6 @@
 /*Javascript para login y registro de usuario*/
 
+
 $(document).ready(function () {
 
     $("#form-login").submit(function (event) {
@@ -12,7 +13,8 @@ $(document).ready(function () {
 
         event.preventDefault();
         registrarUsuario();
-    });
+    });    
+
 
 });
 
