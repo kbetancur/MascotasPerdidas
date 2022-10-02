@@ -105,7 +105,7 @@
     </div>
     <div class="col">
       <div class="card-body">
-        <h5 class="card-title">MI PERFIL</h5>
+        <h2 class="card-title">MI PERFIL</h2>
         <p class="card-text"> En este espacio podrás ver la información de tu perfil
         y realizar todas las modificaciones que consideres. También podrás registrar una mascota y ver la información de tus mascotas registradas
         </p>
@@ -119,7 +119,7 @@
               <table class="table table-striped">
                   <thead>
                       <tr>
-                          <td colspan="2">Detalles</td>
+                          <td colspan="2"><h3>Detalles</h3></td>
 
                       </tr>
                   </thead>
@@ -133,8 +133,16 @@
                           <td><span id="span-apellidos"></span></td>
                       </tr>
                       <tr>
+                          <td scope="row">Identficación</td>
+                          <td><span id="span-identificacion"></span></td>
+                      </tr>
+                      <tr>
                           <td scope="row">Correo Electrónico</td>
                           <td><span id="span-correoelectronico"></span></td>
+                      </tr>
+                      <tr>
+                          <td scope="row">Ciudad</td>
+                          <td><span id="span-ciudad"></span></td>
                       </tr>
                       <tr>
                           <td scope="row">Teléfono</td>
@@ -246,8 +254,7 @@
                   <!--<label class="form-label" for="telefono">Teléfono</label>-->
                 </div>    
                 
-                <button type="submit" class="btn btn-primary">Actualizar</button> 
-                <button class="btn btn-outline-primary" onclick="redirectRegistroMascotas()">Registrar Mascota</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>                 
 
               
                 </form>
@@ -283,6 +290,7 @@
                         <th scope="col">Color</th>
                         <th scope="col">Estado</th>
                          <th scope="col">Publicar</th>
+                         <th scope="col">Editar</th>
                     </tr>
                 </thead>
                 <tbody id="mascotas-tbody">

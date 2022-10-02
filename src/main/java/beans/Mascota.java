@@ -59,6 +59,14 @@ public class Mascota {
         this.estado = estado;
     }
 
+    //Constructor para actualizar el estado de la mascota
+    public Mascota(int id_mascota, String estado) {
+        this.id_mascota = id_mascota; 
+        this.estado = estado;
+
+    }
+
+        
     
     
     

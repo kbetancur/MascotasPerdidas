@@ -11,6 +11,8 @@ $(document).ready(function (){
     $("#form-registerm").submit(function (event) {
         event.preventDefault();
         registrarPublicacion();
+        actualizarEstadoMascota();
+        
     });
     
     $(function ()
@@ -28,8 +30,7 @@ $(document).ready(function (){
         document.getElementById("input-especie").setAttribute('value',mascota.especie);
         document.getElementById("input-raza").setAttribute('value',mascota.raza);
         document.getElementById("input-anio_nacimiento").setAttribute('value',mascota.anio_nacimiento);
-        document.getElementById("input-color").setAttribute('value',mascota.color);
-        
+        document.getElementById("input-color").setAttribute('value',mascota.color);        
         document.getElementById("input-id_duenio").setAttribute('value',mascota.id_duenio);
         document.getElementById("input-nombreduenio").setAttribute('value',mascota.nombres_duenio);
         
@@ -116,4 +117,36 @@ function registrarPublicacion() {
         $("#registerp-error").removeClass("d-none");
         $("#registerp-error").html("El id_mascota no debe estar vacío");
     }
+}
+
+
+//actualizar el estado de la mascota al guardar la publicación
+function actualizarEstadoMascota() {
+    let id_mascota = $("#input-id_mascota").val();
+    //console.log("idmascota act: "+ id_mascota);
+    let estado = $("#select-iestado").val();
+    //console.log("estado act: "+ estado);
+        $.ajax({
+            type: "GET",
+            dataType: "html",
+            url: "./ServletActualizarEstadoMascota",
+            data: $.param({   
+                id_mascota,
+                estado: estado                
+            }),
+
+            success: function (result) {
+                let parsedResult = JSON.parse(result);
+
+                if (parsedResult !== false) {
+                    $("#edit-error").addClass("d-none");
+                    let estado = parsedResult['estado'];
+                } else {
+
+                    $("#edit-error").removeClass("d-none");
+                    $("#edit-error").html("Error en la actualización del estado de la mascota");
+                }
+            }
+        });
+
 }

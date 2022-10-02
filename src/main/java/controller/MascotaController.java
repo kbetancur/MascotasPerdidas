@@ -81,7 +81,7 @@ public class MascotaController implements IMascotaController {
     
     
 /*--------------------------------------------
-    listar todos las mascotas 
+    listar todos las mascotas  de un dueño
  ---------------------------------------------*/      
 @Override
     public String vermismascotas(boolean ordenar, String orden, int id_duenio_param)
@@ -169,6 +169,68 @@ public class MascotaController implements IMascotaController {
         return "false";
         
     }        
+    
+/*-----------------------------------------------------------------------
+    Actualiza el estado de la mascota cuando se realiza una publicación
+ -----------------------------------------------------------------------*/    
+    
+    @Override
+    public String actualizarEstado(int id_mascota, String estado)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();        
+        
+        String sql = "Update tbl_mascotas set estado= '"+estado+"' where id_mascota=" + id_mascota;
+        try {
+            
+            Statement st = conn.getConnection().createStatement();
+            st.executeUpdate(sql);
+            Mascota mascota = new Mascota (id_mascota, estado);
+            st.close();
+            
+            return gson.toJson(mascota);            
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+            
+        }
+        return "false";
+        
+    }
+    
+    
+/*---------------------------------------
+    Actualiza una mascota
+ ----------------------------------------*/    
+    
+    @Override
+    public String actualizarMascota(int id_duenio,int id_mascota, String nombre, String especie, String raza, int anio_nacimiento, String color, String estado)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();        
+        
+        String sql = "Update tbl_mascotas set id_duenio="+id_duenio+", nombre = '"+nombre+"' , especie='"+especie+"', raza='"+raza+"', anio_nacimiento="+anio_nacimiento+", color='"+color+"', estado= '"+estado+"' where id_mascota="+id_mascota;
+        try {
+            
+            Statement st = conn.getConnection().createStatement();
+            st.executeUpdate(sql);
+            Mascota mascota = new Mascota (id_duenio, nombre, especie, raza, anio_nacimiento, color, estado);
+            st.close();
+            
+            return gson.toJson(mascota);            
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+            
+        }
+        return "false";
+        
+    }    
+    
     
     
 }

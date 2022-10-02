@@ -12,6 +12,15 @@ public class Publicacion {
     private Date fecha_perdida;
     private String descripcion;
     private String comentarios;
+    
+    //atributos para consulta ver publicaciones
+    private String nombre_mascota;
+    private String especie;
+    private String raza;
+    private int anio_nacimiento;
+    private String color;
+    private String estado;
+    
 
     public Publicacion(int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios) {
         
@@ -22,6 +31,22 @@ public class Publicacion {
         this.comentarios = comentarios;
     }
     
+    //constructor para método verPublicaciones
+
+    public Publicacion(int id_publicacion, int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios, String nombre_mascota, String especie, String raza, int anio_nacimiento, String color, String estado) {
+        this.id_publicacion = id_publicacion;
+        this.id_mascota = id_mascota;
+        this.fecha_publicacion = fecha_publicacion;
+        this.fecha_perdida = fecha_perdida;
+        this.descripcion = descripcion;
+        this.comentarios = comentarios;
+        this.nombre_mascota = nombre_mascota;
+        this.especie = especie;
+        this.raza = raza;
+        this.anio_nacimiento = anio_nacimiento;
+        this.color = color;
+        this.estado = estado;
+    }
     
     
 

@@ -6,6 +6,7 @@ controller\MascotaController.class
 servlets\ServletListarMascotasxDuenio.class
 servlets\ServletRegistroMascota.class
 servlets\PruebaServlet.class
+servlets\ServletVerPublicaciones.class
 controller\PublicacionController.class
 controller\IMascotaController.class
 test\OperacionesDB.class

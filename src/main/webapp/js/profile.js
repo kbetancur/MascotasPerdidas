@@ -44,6 +44,8 @@ $(document).ready(function (){
         $("#span-apellidos").html(user.apellidos);
         $("#span-correoelectronico").html(user.correo_electronico);
         $("#span-telefono").html(user.telefono);
+        $("#span-identificacion").html(user.identificacion);
+        $("#span-ciudad").html(user.ciudad);
         
         //para asignar a los campos de editar
         document.getElementById("input-correo").setAttribute('value',user.correo_electronico);
@@ -200,11 +202,16 @@ function mostrarMisMascotas(listmismascotas){
         '<td>' + mascota.anio_nacimiento  + '</td>' + 
         '<td>' + mascota.color  + '</td>' + 
         '<td>' + mascota.estado  + '</td>'+
-        '<td><button class ="btn btn-success" onclick="realizarPublicacion(' + mascota.id_mascota + ')">Publicación</button> </td></tr>';        
+        '<td><button class ="btn btn-success" onclick="realizarPublicacion(' + mascota.id_mascota + ')">Publicación</button> </td>'+
+        '<td><button class ="btn btn-success" onclick="actualizarMascota(' + mascota.id_mascota + ')">Editar</button> </td></tr>';        
     });
 $("#mascotas-tbody").html(contenido);
 }
 
 function realizarPublicacion(id_mascota){
     document.location.href = "registropublicacion.html?correo_electronico=" + correo_electronico+"&"+"id_mascota="+id_mascota;
+}
+
+function actualizarMascota(id_mascota){
+    document.location.href = "actualizarmascota.html?correo_electronico=" + correo_electronico+"&"+"id_mascota="+id_mascota;
 }
