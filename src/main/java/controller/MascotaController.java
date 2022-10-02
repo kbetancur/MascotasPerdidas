@@ -80,5 +80,96 @@ public class MascotaController implements IMascotaController {
     }    
     
     
+/*--------------------------------------------
+    listar todos las mascotas 
+ ---------------------------------------------*/      
+@Override
+    public String vermismascotas(boolean ordenar, String orden, int id_duenio_param)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();
+        String sql = "Select * from tbl_mascotas where id_duenio = "+ id_duenio_param;
+        
+        if (ordenar == true){
+            sql += " order by nombre " + orden;
+        }
+        
+        List<String> listmismascotas = new ArrayList<String>();
+        
+        try {
+            Statement st = conn.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                int id_mascota = rs.getInt("id_mascota");
+                int id_duenio = rs.getInt("id_duenio");
+                String nombre = rs.getString("nombre");
+                String especie = rs.getString("especie");
+                String raza = rs.getString("raza");
+                int anio_nacimiento = rs.getInt("anio_nacimiento");
+                String color = rs.getString("color");
+                String estado = rs.getString("estado");
+                
+
+                
+                Mascota mascota = new Mascota (id_mascota, id_duenio, nombre, especie, raza, anio_nacimiento, color, estado);
+                listmismascotas.add(gson.toJson(mascota));
+                           
+
+            }
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+        }        
+        return gson.toJson(listmismascotas);
+        
+    }      
+    
+    
+/*--------------------------------------------
+    obtener datos de una mascota
+ ---------------------------------------------*/      
+@Override
+    public String obtenerDatosMascota(int id_mascotaparam)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();
+        String sql = "Select m.id_mascota, m.id_duenio,concat(d.nombre, ' ',  d.apellidos) AS 'nombres_duenio' , m.nombre,m.especie,m.raza, m.anio_nacimiento, m.color, m.estado FROM tbl_mascotas AS m INNER JOIN tbl_duenio AS d ON d.id_duenio = m.id_duenio WHERE m.id_mascota = " + id_mascotaparam;
+       
+       
+        try {
+            Statement st = conn.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                int id_mascota = rs.getInt("id_mascota");
+                int id_duenio = rs.getInt("id_duenio");
+                String nombres_duenio = rs.getString("nombres_duenio");
+                String nombre = rs.getString("nombre");
+                String especie = rs.getString("especie");
+                String raza = rs.getString("raza");
+                int anio_nacimiento = rs.getInt("anio_nacimiento");
+                String color = rs.getString("color");
+                String estado = rs.getString("estado");               
+
+                
+                Mascota mascota = new Mascota (id_mascota, id_duenio, nombres_duenio,nombre, especie, raza, anio_nacimiento, color, estado);
+                return gson.toJson(mascota);   
+                           
+
+            }
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+        }        
+        return "false";
+        
+    }        
+    
+    
 }
     

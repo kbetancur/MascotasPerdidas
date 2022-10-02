@@ -71,7 +71,7 @@ function registrarMascota() {
                         },
                         function()
                         {
-                            document.location.href = "home.html?nombre=" + nombre;
+                            document.location.href = "profile.html?correo_electronico=" + correo_electronico;
                         }
                     );
                     

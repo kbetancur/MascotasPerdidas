@@ -81,146 +81,41 @@
         <!--fin menú-->
 
 
-        <main class="p-4 d-flex justify-content-center">
-
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id: </th>
-                        <th scope="col">Tipo Identificación</th>
-                        <th scope="col">Identificación</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Correo Electrónico</th>
-                        <th scope="col">Ciudad</th>
-                        <th scope="col">Barrio</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Telefono</th>
-                    </tr>
-                </thead>
-                <tbody id="duenios-tbody">
-                </tbody>
-            </table>     
-            <br>
-
-        </main>
+       
         
-<!-- Inicio Formulario Editar Usuario -->
-<section class="h-100 bg-light">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card card-registration my-4">         
-            
+<!-- Inicio Info Dueño-->
 
-              <div class="card-body p-md-5 text-black">
-                <form id="form-edituser">
-                <h3 class="mb-5 text-uppercase text-center">Editar Dueño</h3>
+<div class="container">
+    <h2 class="text-center">Bienvenido <span id="span-user"></span></h2><br>
+    
+<div class="row row-cols-1 row-cols-md-2 g-4">
 
-                              
-                 <div class="form-outline mb-4">
-                     <label class="form-label" for="input-correo">Correo Electrónico</label>
-                     <input type="text" id="input-correo" class="form-control form-control-lg" disabled />                  
-                </div>
-                
-                 <div class="row">                    
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="input-nombre">Nombre: </label>
-                        <input type="text" id="input-nombre" class="form-control form-control-lg" />                      
-                    </div>
-                  </div>
-                    
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="input-apellidos">Apellidos: </label>
-                        <input type="text" id="input-apellidos" class="form-control form-control-lg" />                      
-                    </div>
-                  </div>                    
-                </div>
- 
-
-                <div class="row">                  
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">   
-                        <label class="form-label" for="select-tipoidentificacion">Tipo de identificación: </label>
-                        <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="select-tipoidentificacion">
-                            <option disabled selected>Tipo de Identificación</option>
-                            <option value="CC">CC</option>
-                            <option value="CE">CE</option>
-                            <option value="TI">TI</option>
-                      </select>                        
-                    </div>
-                  </div>
-                    
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="input-identificacion">Identificación: </label>
-                        <input type="text" id="input-identificacion" class="form-control form-control-lg" />                      
-                    </div>
-                  </div>
-                    
-                </div>
-                
- 
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <label class="form-label" for="input-ciudad">Ciudad</label>
-                      <input type="text" id="input-ciudad" class="form-control form-control-lg" />
-                      
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="input-barrio">Barrio: </label>
-                        <input type="text" id="input-barrio" class="form-control form-control-lg" />
-                      
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="input-direccion">Dirección: </label>
-                  <input type="text" id="input-direccion" class="form-control form-control-lg" />
-                  
-                </div>
-                
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="input-telefono">Teléfono: </label>
-                  <input type="text" id="input-telefono" class="form-control form-control-lg"  />
-                  <!--<label class="form-label" for="telefono">Teléfono</label>-->
-                </div>    
-                
-                <button type="submit" class="btn btn-primary">Actualizar</button> 
-                <button class="btn btn-outline-primary" onclick="redirectRegistroMascotas()">Registrar Mascota</button>
-
-              
-                </form>
-                  <br>
-                  <div id="edit-error" class="alert alert-danger d-none" role="alert"></div>
-
-              </div>
-                
-         
- 
-        </div>
+  <div class="col">
+    <div class="card">
+      <img src="img/doghomeduenio.png"  class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">Registro de Mascotas</h5>
+        <p class="card-text">Desde el botón de Registrar Mascotas podrás registrar tu mascota. También lo podrás hacer desde tu perfil.</p>
+        <button class="btn btn-primary" onclick="redirectRegistroMascotas()">Registrar Mascota</button>
       </div>
     </div>
-
-     <p>EQUIPO ROCKET TEAM - MISIÓN TIC 2022 - UTP</p>      
+</div>    
+  <div class="col">
+    <div class="card">
+      <img src="https://veterinariaelbuenpastor.com/wp-content/uploads/2021/06/etapas-importantes-vida-perro-t.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Editar Información</h5>
+        <p class="card-text">Accediendo a Ajustes - Mi Perfil podrás editar toda tu información</p>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- Fin Formulario Editar Usuario -->
+</div>
 
-        <!-- Iniio pie de página-->
-        <footer class="border-top footer text-muted" style="background-color: #b6e3e9;">
-            <div class="container">
-                &copy; 2022 - Mascotas Perdidas - <a>Privacy</a>
-            </div>
-        </footer>
-        <!-- Fin pie de página-->
+</div>    
+
+<!-- Fin Info Dueño Usuario -->
+
+
     </body>
 </html>

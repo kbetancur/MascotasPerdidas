@@ -13,8 +13,8 @@ public class Publicacion {
     private String descripcion;
     private String comentarios;
 
-    public Publicacion(int id_publicacion, int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios) {
-        this.id_publicacion = id_publicacion;
+    public Publicacion(int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios) {
+        
         this.id_mascota = id_mascota;
         this.fecha_publicacion = fecha_publicacion;
         this.fecha_perdida = fecha_perdida;

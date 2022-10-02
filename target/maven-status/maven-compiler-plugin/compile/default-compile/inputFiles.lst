@@ -5,6 +5,9 @@ C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\serv
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\PruebaServlet.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletDuenioLogin.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\beans\Publicacion.java
+C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\controller\PublicacionController.java
+C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletRegistroPublicacion.java
+C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\controller\IPublicacionController.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\beans\Duenio.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletDuenioEdit.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\controller\DuenioController.java
@@ -12,6 +15,8 @@ C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\serv
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\test\OperacionesDB.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\connection\DBConnection.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\controller\IDuenioController.java
+C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletListarMascotasxDuenio.java
+C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletGetDatosMascota.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\controller\MascotaController.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\beans\Mascota.java
 C:\Users\Katherin\Documents\NetBeansProjects\MascotasPerdidas\src\main\java\servlets\ServletRegistroMascota.java
