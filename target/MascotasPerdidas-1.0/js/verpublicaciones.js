@@ -20,7 +20,7 @@ function getlistarPublicaciones(){
         }),
         success: function(result){
             let parsedResult = JSON.parse(result);
-            if(parsedResult !=false){
+            if(parsedResult !==false){
                 mostrarPublicaciones(parsedResult);
             }else{
                 console.log("Error recuperando datos de las publicaciones");
@@ -41,11 +41,15 @@ function mostrarPublicaciones(listpublicaciones){
         +'<li class="list-group-item">Raza: ' +publicacion.raza+'</li>'+
         '<li class="list-group-item">Color: '+ publicacion.color+'</li>'+
         '<li class="list-group-item">Año de Nacimiento: '+ publicacion.anio_nacimiento+'</li>'
-        +' </ul>' + '<div class="card-footer text-muted">Fecha de Publicación: '+publicacion.fecha_publicacion+'</div>'+
+        +' </ul>' + '<div class="d-grid gap-2 d-md-flex justify-content-md-end">'+
+        '<button class ="btn btn-primary" onclick="verContacto(' + publicacion.id_publicacion +','+publicacion.id_duenio    + ')">Contacto</button></div>'
+        +'<div class="card-footer text-muted">Fecha de Publicación: '+publicacion.fecha_publicacion+'</div>'+
         ' </div>' +' </div>';        
     });
     $("#mascotas-divpublicacion").html(contenido);
 }
 
 
-
+function verContacto(id_publicacion, id_duenio){
+    document.location.href = "contactousuario.html?id_publicacion=" + id_publicacion+"&"+"id_duenio="+id_duenio;
+}

@@ -10,6 +10,8 @@ public interface IDuenioController {
     
     public String obtenerDatos(String correo_electronico);
     
+     public String obtenerDatosxId(int id_duenio);
+    
     public String edit(String tipo_identificacion,String identificacion, String nombre, String apellidos, String correo_electronico,String ciudad, String barrio, String direccion, String telefono);
     
     public String listar(boolean ordenar, String orden);

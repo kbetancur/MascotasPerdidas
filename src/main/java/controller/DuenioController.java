@@ -78,6 +78,9 @@ public class DuenioController implements IDuenioController {
         
     }
     
+/*--------------------------------------------
+    Obtener datos por correo
+ ---------------------------------------------*/    
     
     @Override
     public String obtenerDatos (String correo_electronico)
@@ -115,6 +118,49 @@ public class DuenioController implements IDuenioController {
         return "false";
         
     }
+    
+/*--------------------------------------------
+    Obtener datos por Id
+ ---------------------------------------------*/        
+@Override
+    public String obtenerDatosxId (int id_duenioparam)
+    {
+        Gson gson = new Gson();        
+        DBConnection conn = new DBConnection();
+        String sql = "Select * from tbl_duenio where id_duenio ="+id_duenioparam;
+        
+        try {
+            Statement st = conn.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                int id_duenio = rs.getInt("id_duenio");
+                String correo_electronico = rs.getString("correo_electronico");
+                String contrasena = rs.getString("contrasena");
+                String tipo_identificacion = rs.getString("tipo_identificacion");
+                String identificacion = rs.getString("identificacion");
+                String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");                
+                String ciudad = rs.getString("ciudad");
+                String barrio = rs.getString("barrio");
+                String direccion = rs.getString("direccion");
+                String telefono = rs.getString("telefono");
+                
+                Duenio duenio = new Duenio (id_duenio, tipo_identificacion, identificacion, nombre, apellidos, correo_electronico, contrasena, ciudad, barrio, direccion, telefono);
+                System.out.println("objeto duenio" + duenio);
+                return gson.toJson(duenio);                
+
+            }
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }finally{
+            conn.desconectar();
+        }        
+        return "false";
+        
+    }
+
     
 /*--------------------------------------------
     Editar usuario

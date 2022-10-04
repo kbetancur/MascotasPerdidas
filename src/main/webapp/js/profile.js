@@ -1,8 +1,10 @@
 
 var correo_electronico = new URL (location.href).searchParams.get("correo_electronico");
-console.log("correo: " + correo_electronico);
+//console.log("correo: " + correo_electronico);
 var user;
 var tmpid_duenio;
+var id_mascota;
+var id_publicacion;
 
 
 //función para redireccionar a registro mascotas llevandole el correo del dueño
@@ -36,7 +38,7 @@ $(document).ready(function (){
         //para asignar al input oculto de id_duenio
         document.getElementById("input-id-duenio").setAttribute('value',user.id_duenio);   
         tmpid_duenio = $("#input-id-duenio").val();
-        console.log("id en getUsuario" + tmpid_duenio);
+        //console.log("id en getUsuario" + tmpid_duenio);
         
         //para asignar a la tabla de detalles de usuario
         $("#user-nombre").html(user.nombre + " " + user.apellidos);
@@ -60,8 +62,10 @@ $(document).ready(function (){
  
 
         //para visualizar las mascotas
-        console.log("id antes de listarMasc" + tmpid_duenio);
-        getlistarMisMascotas(false, "ASC", tmpid_duenio);
+         getlistarMisMascotas(false, "ASC", tmpid_duenio);
+        
+        //Para visualizar mis publicaciones
+        getlistarMisPublicaciones(tmpid_duenio);
         
     });
     
@@ -129,7 +133,7 @@ function actualizarUsuario() {
             success: function (result) {
                 let parsedResult = JSON.parse(result);
 
-                if (parsedResult != false) {
+                if (parsedResult !== false) {
                     $("#edit-error").addClass("d-none");
                     let correo_electronico = parsedResult['correo_electronico'];
                     swal(
@@ -205,7 +209,7 @@ function mostrarMisMascotas(listmismascotas){
         '<td><button class ="btn btn-success" onclick="realizarPublicacion(' + mascota.id_mascota + ')">Publicación</button> </td>'+
         '<td><button class ="btn btn-success" onclick="actualizarMascota(' + mascota.id_mascota + ')">Editar</button> </td></tr>';        
     });
-$("#mascotas-tbody").html(contenido);
+    $("#mascotas-tbody").html(contenido);
 }
 
 function realizarPublicacion(id_mascota){
@@ -214,4 +218,50 @@ function realizarPublicacion(id_mascota){
 
 function actualizarMascota(id_mascota){
     document.location.href = "actualizarmascota.html?correo_electronico=" + correo_electronico+"&"+"id_mascota="+id_mascota;
+}
+
+
+
+//función para ir al servlet de visualizar mis publicaciones
+function getlistarMisPublicaciones(id_duenio){
+    
+    
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletVerMisPublicaciones",
+        data: $.param({            
+            id_duenio: id_duenio
+        }),
+        success: function(result){
+            let parsedResult = JSON.parse(result);
+            if(parsedResult !==false){
+                mostrarMisPublicaciones(parsedResult);
+            }else{
+                console.log("Error recuperando datos de las publicaciones");
+            }
+        }
+    });
+}
+
+function mostrarMisPublicaciones(listmispublicaciones){
+    let contenido = "";
+    $.each(listmispublicaciones, function (index, publicacion){
+        publicacion = JSON.parse(publicacion);
+        
+        contenido += '<tr><th scope="row">' +publicacion.id_publicacion + '</th>'+        
+        '<td>' + publicacion.id_mascota + '</td>' + 
+        '<td>' + publicacion.nombre_mascota  + '</td>' + 
+        '<td>' + publicacion.estado  + '</td>' + 
+        '<td>' + publicacion.fecha_publicacion  + '</td>' + 
+        '<td>' + publicacion.fecha_perdida  + '</td>' + 
+        '<td>' + publicacion.descripcion  + '</td>' +         
+        '<td><button class ="btn btn-success" onclick="editarPublicacion(' + publicacion.id_duenio +','+publicacion.id_mascota+','+publicacion.id_publicacion+ ')">Editar</button> </td></tr>';
+              
+    });
+    $("#publicaciones-tbody").html(contenido);
+}
+
+function editarPublicacion(id_duenio, id_mascota, id_publicacion){
+    document.location.href = "editarpublicacion.html?correo_electronico=" + correo_electronico+"&"+"id_duenio="+id_duenio+"&"+"id_mascota="+id_mascota+"&"+"id_publicacion="+id_publicacion;
 }

@@ -21,6 +21,9 @@ public class Publicacion {
     private String color;
     private String estado;
     
+    //atributo para consultar mis publicaciones
+    private int id_duenio;
+    
 
     public Publicacion(int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios) {
         
@@ -31,11 +34,13 @@ public class Publicacion {
         this.comentarios = comentarios;
     }
     
-    //constructor para método verPublicaciones
-
-    public Publicacion(int id_publicacion, int id_mascota, Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios, String nombre_mascota, String especie, String raza, int anio_nacimiento, String color, String estado) {
+    
+    
+    //constructor para método verTodasPublicaciones y verMISPublicaciones
+    public Publicacion(int id_publicacion, int id_mascota, int id_duenio,Date fecha_publicacion, Date fecha_perdida, String descripcion, String comentarios, String nombre_mascota, String especie, String raza, int anio_nacimiento, String color, String estado) {
         this.id_publicacion = id_publicacion;
         this.id_mascota = id_mascota;
+        this.id_duenio = id_duenio;
         this.fecha_publicacion = fecha_publicacion;
         this.fecha_perdida = fecha_perdida;
         this.descripcion = descripcion;
@@ -47,8 +52,6 @@ public class Publicacion {
         this.color = color;
         this.estado = estado;
     }
-    
-    
 
     /**
      * @return the id_publicacion
