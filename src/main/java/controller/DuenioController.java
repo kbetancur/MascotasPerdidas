@@ -12,7 +12,9 @@ import java.util.List;
 public class DuenioController implements IDuenioController {
     
      
-    
+/*--------------------------------------------
+    Login Dueño
+ ---------------------------------------------*/        
     @Override
     public String login(String correo_electronico, String contrasena)
     {
